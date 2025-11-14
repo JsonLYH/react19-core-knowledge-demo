@@ -122,6 +122,12 @@ const selectUserAndTheme = createSelector(
 const { user, theme } = useSelector(selectUserAndTheme);
 
 ```
+# react-thunks与react-sagas
+## 1、react-thunks
+react-thunks是redux官方推荐的处理异步操作的中间件，它允许你在action creator中编写异步逻辑。
+## 2、react-sagas
+react-sagas是一个用于管理异步操作的库，它基于generator函数，提供了更强大的异步流程控制能力。
+
 # 状态管理方式
 1.组件中自己的state管理
 2.Context数据的共享状态

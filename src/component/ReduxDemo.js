@@ -7,15 +7,15 @@ export default memo(function ReduxDemo() {
     useEffect(() => {
       dispatch(getTestDataAction());
     }, []);
-    // 仅当counter模块数据发生变化时，才会重新进行渲染（推荐做法）
-        const counter = useSelector((state) => state.counter, shallowEqual);
-        //只要state发生变化，都会重新进行渲染
-    // const counter = useSelector((state) => state.counter);
-    return (
-        <div>
-        <button onClick={() => dispatch(incremented())}>+</button>
-        <h1>当前数值：{counter.value}</h1>
-        <button onClick={() => dispatch(decremented())}>-</button>
-        </div>
-    );
+  // 仅当counter模块数据发生变化时，才会重新进行渲染（推荐做法）
+    const counter = useSelector((state) => state.counter, shallowEqual);
+    //只要state发生变化，都会重新进行渲染
+  // const counter = useSelector((state) => state.counter);
+  return (
+    <div>
+      <button onClick={() => dispatch(incremented())}>+</button>
+      <h1>当前数值：{counter.value}</h1>
+      <button onClick={() => dispatch(decremented())}>-</button>
+    </div>
+  );
 })
