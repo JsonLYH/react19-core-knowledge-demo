@@ -1,10 +1,11 @@
-import { createSlice } from "@reduxjs/toolkit";
-
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { getTestDataAction } from "../asyncActions/counterAsyncAction";
 const CounterState = createSlice({
   name: "counter",
   initialState: {
     value: 0,
   },
+  //同步reducers
   reducers: {
     incremented: (state) => {
       // Redux Toolkit 允许在 reducers 中编写 "mutating" 逻辑。
@@ -16,6 +17,11 @@ const CounterState = createSlice({
       state.value -= 1;
     },
   },
+  extraReducers: (builder) => { 
+    builder.addCase(getTestDataAction.fulfilled, (state, action) => {
+      console.log("异步请求的数据",action.payload);
+    })
+  }
 });
 export const { incremented, decremented } = CounterState.actions;
 export default CounterState.reducer;

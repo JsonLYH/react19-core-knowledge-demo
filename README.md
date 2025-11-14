@@ -122,3 +122,11 @@ const selectUserAndTheme = createSelector(
 const { user, theme } = useSelector(selectUserAndTheme);
 
 ```
+# 状态管理方式
+1.组件中自己的state管理
+2.Context数据的共享状态
+3.Redux管理应用状态
+# 项目中推荐的state管理方案
+1.UI相关的组件内部可以维护的状态，在组件内部自己来维护；
+2.大部分需要共享的状态，都交给redux来管理和维护；
+3.从服务器请求的数据（包括请求的操作），交给redux来维护；
