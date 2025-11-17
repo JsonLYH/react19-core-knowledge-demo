@@ -1,5 +1,8 @@
+# useLayoutEffect
+![alt text](image-14.png)
 # useEffect 场景
 ![alt text](image-1.png)
+
 ## 1、每次渲染后都执行
 ```js
 useEffect(() =>
@@ -38,6 +41,8 @@ console.log('清理上一次的 effect');
 }, [count, name]);
 // 依赖数组
 ```
+## 4.多个useEffect
+![alt text](image-10.png)
 # classnames 库结合css模块使用
 ```
 import React from 'react';
@@ -90,6 +95,8 @@ const Button = ({ primary, size }) => {
 export default Button;
 ```
 # 关于redux中useSelector的性能优化
+## useSelector说明
+![alt text](image-13.png)
 ## 使用浅比较进行优化
 ```js
 // ❌ 错误：每次state变化都触发渲染
@@ -146,6 +153,9 @@ react-sagas是一个用于管理异步操作的库，它基于generator函数，
 ## 高阶函数
 高阶函数是指接受一个或多个函数作为参数，或者返回一个函数作为结果的函数。在JavaScript中，函数是一等公民，因此可以将函数作为参数传递，也可以将函数作为返回值。
 
+# useImperativeHandle
+通过useImperativeHandle可以限制子组件暴露给父组件的方法
+![alt text](image-15.png)
 # 路由篇
 ## 安装依赖
 ```
@@ -517,3 +527,25 @@ export default function Home() {
   )
 }
 ```
+# Hooks
+对于一个新的项目，我们提倡使用函数式组件+Hooks进行开发，这样代码看起来就会非常的简洁
+![alt text](image-9.png)
+## 为什么叫useState 而不叫createState?
+![alt text](image-12.png)
+## Hooks调用原则
+![alt text](image-11.png)
+# 自定义hook
+![alt text](image-16.png)
+![alt text](image-17.png)
+# useTransition
+![alt text](image-22.png)
+# useDeferredValue
+![alt text](image-23.png)
+# SSR相关知识补充
+## userId
+![alt text](image-18.png)
+![alt text](image-20.png)
+## SSR同构应用
+![alt text](image-19.png)
+## Hydration
+![alt text](image-21.png)
