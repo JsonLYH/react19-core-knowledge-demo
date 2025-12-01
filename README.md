@@ -1,8 +1,6 @@
 # useLayoutEffect
 ![alt text](image-14.png)
 # useEffect 场景
-![alt text](image-1.png)
-
 ## 1、每次渲染后都执行
 ```js
 useEffect(() =>
