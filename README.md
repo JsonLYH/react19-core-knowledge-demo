@@ -527,6 +527,55 @@ export default function Home() {
   )
 }
 ```
+# 路由守卫
+## 实现登录验证
+```
+import { Navigate, useLocation } from 'react-router-dom';
+
+function RequireAuth({ children }) {
+  const { user } = useAuth(); // 假设有用户上下文
+  const location = useLocation();
+
+  if (!user) {
+    return <Navigate to="/login" state={{ from: location }} replace />;
+  }
+
+  return children;
+}
+
+// 路由配置
+<Route 
+  path="/profile"
+  element={
+    <RequireAuth>
+      <UserProfile />
+    </RequireAuth>
+  }
+/>
+```
+## 权限细粒度控制
+```
+// 高阶守卫组件
+function RequireRole({ children, allowedRoles }) {
+  const { user } = useAuth();
+  
+  if (!user?.roles?.some(r => allowedRoles.includes(r))) {
+    return <Navigate to="/unauthorized" replace />;
+  }
+
+  return children;
+}
+
+// 使用示例
+<Route
+  path="/admin"
+  element={
+    <RequireRole allowedRoles={['admin']}>
+      <AdminPanel />
+    </RequireRole>
+  }
+/>
+```
 # Hooks
 对于一个新的项目，我们提倡使用函数式组件+Hooks进行开发，这样代码看起来就会非常的简洁
 ![alt text](image-9.png)
