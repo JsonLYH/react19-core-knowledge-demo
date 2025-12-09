@@ -1,3 +1,7 @@
+# 官方脚手架
+```javascript
+npx create-react-app my-app
+```
 # useLayoutEffect
 ![alt text](image-14.png)
 # useEffect 场景
